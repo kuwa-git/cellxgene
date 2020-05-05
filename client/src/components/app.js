@@ -11,7 +11,15 @@ import Graph from "./graph/graph";
 import MenuBar from "./menubar";
 import Autosave from "./autosave";
 import TermsOfServicePrompt from "./termsPrompt";
-
+import {
+  Position,
+  Button,
+  Popover,
+  NumericInput,
+  Icon,
+  Tooltip,
+  Drawer,
+} from "@blueprintjs/core";
 import actions from "../actions";
 
 @connect((state) => ({
@@ -95,6 +103,48 @@ class App extends React.Component {
           {loading ? null : <Graph key={graphRenderCounter} />}
           {loading ? null : <Autosave />}
           {loading ? null : <TermsOfServicePrompt />}
+          <Drawer
+            autoFocus="true"
+            canEscapeKeyClose="true"
+            canOutsideClickClose="true"
+            enforceFocus="true"
+            hasBackdrop="true"
+            isOpen="false"
+            position=" PositionRIGHT"
+            size={"45em"}
+            usePortal="true"
+            title="Dataset Overview"
+          >
+            <div
+              style={{
+                padding: 20,
+              }}
+            >
+              <h1 style={{ fontSize: 36 }}>
+                A molecular cell atlas of the human lung from single cell RNA
+                sequencing
+              </h1>
+              <h3 style={{ fontSize: 18 }}>Authors</h3>
+              <p style={{ fontSize: 14 }}>
+                Kyle J. Travaglini, Ahmad N. Nabhan, Lolita Penland, Rahul
+                Sinha, Astrid Gilli,ch Rene V. Sit, Stephen Chang, Stephanie D.
+                Conley, Yasuo Mori, Jun Seita, Gerald J. Berry, Joseph B.
+                Shrager, Ross J. Metzger, Christin S. Kuo, Norma Neff, Irving L.
+                Weissman, Stephen R. Quake, Mark A. Krasnow
+              </p>
+              <h3 style={{ fontSize: 18 }}>DOI</h3>
+              <p style={{ fontSize: 14 }}>https://doi.org/10.1101/742320</p>
+              <h3 style={{ fontSize: 18 }}>Comments</h3>
+              <p style={{ fontSize: 14 }}>
+                Tissue was collected from patients undergoing lobectomy for
+                focal lung tumors, but normal tissue was obtained from
+                uninvolved regions of the lung.
+              </p>
+              <h3 style={{ fontSize: 18 }}>Dataset Metadata</h3>
+              <p style={{ fontSize: 14 }}>Organism: Homo Sapiens</p>
+              <p style={{ fontSize: 14 }}>Disease: null</p>
+            </div>
+          </Drawer>
           <Legend />
         </div>
       </Container>
@@ -103,3 +153,60 @@ class App extends React.Component {
 }
 
 export default App;
+
+/*
+Kyle J. Travaglini,
+Ahmad N. Nabhan,
+Lolita Penland,
+Rahul Sinha,
+Astrid Gilli,ch
+Rene V. Sit,
+Stephen Chang,
+Stephanie D. Conley,
+Yasuo Mori,
+Jun Seita,
+Gerald J. Berry,
+Joseph B. Shrager,
+Ross J. Metzger,
+Christin S. Kuo,
+Norma Neff,
+Irving L. Weissman,
+Stephen R. Quake,
+Mark A. Krasnow,
+
+
+{'assay': "10X 3' v2 sequencing",
+ 'authors': array([
+        "{'name': '
+         "{'name': '}"
+        
+        "{'name': name': 
+        "{'name': name': '}"
+        
+        "{'name': name': '}"
+        
+        "{'name': name': 
+        "{'name': '}"
+         "{'name': '}"
+        
+        "{'name': '}"
+         "{'name': '}"
+        
+        "{'name': name': '}"
+        
+        "{'name': '
+         'email': 'steve@czbiohub.org(opens in new tab)'}"
+        
+        "{'name': '
+         'email': 'krasnow@stanford.edu(opens in new tab)'}"]
+        
+       dtype=object),
+ 'disease': '',
+ 'disease_comments': 'Tissue was collected from patients undergoing lobectomy for focal lung tumors, but normal tissue was obtained from uninvolved regions of the lung.',
+ 'organism': 'Homo sapiens',
+ 'preprint': {'date': '2019-08-27',
+  'doi': 'https://doi.org/10.1101/742320',
+  'title': 'A molecular cell atlas of the human lung from single cell RNA sequencing'},
+ 'short_name': 'krasnow_lab_human_lung_cell_atlas_10x',
+ 'tissue': array(['lung', 'blood'], dtype=object)}
+ */
