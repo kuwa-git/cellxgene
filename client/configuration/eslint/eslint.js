@@ -36,6 +36,7 @@ module.exports = {
     "space-before-function-paren": "off",
     "function-paren-newline": "off",
     "prefer-destructuring": ["error", { object: true, array: false }],
+    "import/prefer-default-export": "off",
   },
   overrides: [
     {
